@@ -1,38 +1,347 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #f4f5f7;
+  color: #1c1e21;
+}
+
+.page-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 0 20px 60px 20px;
+}
+
+.app-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  gap: 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 20px;
+}
+
+.navbar-header {
+  font-weight: bold;
+  font-size: 18px;
+  color: #4a90d9;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: auto; 
+}
+
+.navbar-links a {
+  color: #444;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 4px 2px;
+}
+
+.navbar-links a:hover {
+  color: #4a90d9;
+}
+
+.badge {
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  padding: 1px 6px;
+  font-size: 11px;
+  margin-left: 4px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  background-color: #4a90d9;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn:hover {
+  background-color: #3a7bc0;
+}
+
+.btn:disabled {
+  background-color: #a9c7e6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: #eee;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #ddd;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.input,
+textarea.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4a90d9;
+}
+
+.form-box {
+  background: white;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  max-width: 350px;
+  margin: 60px auto;
+}
+
+.form-box h2 {
+  margin-top: 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.error-text {
+  color: #e74c3c;
+  font-size: 14px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.empty-text {
+  color: #888;
+  text-align: center;
+  padding: 20px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.spinner {
+  text-align: center;
+  color: #4a90d9;
+  padding: 20px 0;
+}
+
+.link-muted {
+  font-size: 13px;
+  color: #555;
+}
+
+.avatar {
+  border-radius: 50%;
+  background-color: #4a90d9;
+  color: white;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-weight: bold;
+}
+
+.social-card {
+  padding: 14px 16px;
+}
+
+.post-author-link {
+  font-weight: 600;
+  font-size: 15px;
+  color: #1c1e21;
+  text-decoration: none;
+}
+
+.post-author-link:hover {
+  text-decoration: underline;
+}
+
+.social-actions {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.social-action-btn {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  text-decoration: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  transition: background-color 0.15s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.social-action-btn:hover {
+  background-color: #f0f2f5;
+  color: #1c1e21;
+}
+
+.social-action-btn.liked {
+  color: #e74c3c;
+  font-weight: 700;
+}
+
+.social-action-btn.danger:hover {
+  background-color: #fdecea;
+  color: #e74c3c;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-box {
+  background-color: white;
+  border-radius: 10px;
+  padding: 24px;
+  max-width: 340px;
+  width: 90%;
+  text-align: center;
+}
+
+.theme-btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid #e0e0e0;
+  background-color: transparent;
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.theme-btn:hover {
+  background-color: #e0e0e0;
+}
+
+body.dark .theme-btn {
+  background-color: #14050500;
+  border-color: #3a3b3c;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+body.dark .theme-btn:hover {
+  background-color: #3a3b3c;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.logout-btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid #e0e0e0;
+  background-color: transparent;
+  color: #e74c3c;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.logout-btn:hover {
+  background-color: #fdecea;
+}
+
+body.dark .logout-btn {
+  border-color: #3a3b3c;
+  color: #ff6b6b;
+}
+
+body.dark .logout-btn:hover {
+  background-color: #3a3b3c;
+}
+
+@media (max-width: 600px) {
+  .home-layout {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+body.dark {
+  background-color: #18191a;
+  color: #e4e6eb;
+}
+
+body.dark .app-navbar,
+body.dark .card,
+body.dark .form-box,
+body.dark .modal-box {
+  background-color: #242526;
+  border-color: #3a3b3c;
+  color: #e4e6eb;
+}
+
+body.dark .navbar-links a {
+  color: #ccc;
+}
+
+body.dark .input {
+  background-color: #3a3b3c;
+  border-color: #555;
+  color: #e4e6eb;
+}
+
+body.dark .social-actions {
+  border-color: #3a3b3c;
+}
+
+body.dark .social-action-btn {
+  color: #ccc;
+}
+
+body.dark .social-action-btn:hover {
+  background-color: #3a3b3c;
+  color: #fff;
+}
+
+body.dark .social-action-btn.liked {
+  color: #ff6b6b;
+}
+
+body.dark .post-author-link {
+  color: #e4e6eb;
 }
