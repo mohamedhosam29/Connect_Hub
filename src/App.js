@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import './App.css';
+import "./App.css";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import Home from "./pages/home";
@@ -15,10 +15,11 @@ import ProtectedRoute from "./routes/protected";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Connect_Hub">
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
         <Route
           path="/home"
           element={
@@ -27,6 +28,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/create-post"
           element={
@@ -35,6 +37,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/edit-post/:id"
           element={
@@ -43,6 +46,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/posts/:id"
           element={
@@ -51,6 +55,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/quotes"
           element={
@@ -59,6 +64,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/profile/:id"
           element={
@@ -67,6 +73,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/search"
           element={
@@ -75,6 +82,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/notifications"
           element={
@@ -83,6 +91,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route path="/" element={<Navigate to="/home" />} />
       </Routes>
     </BrowserRouter>
